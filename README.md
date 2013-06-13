@@ -1,4 +1,4 @@
 sample_rails_app
 ================
 
-Small Simple Sample Rails application
+Small Simple Sample Rails Application
