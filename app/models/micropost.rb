@@ -16,7 +16,7 @@ class Micropost < ActiveRecord::Base
     def self.followed_by(user)
       followed_ids = user.following.map(&:id)
       followed_ids = [user.id] if followed_ids.blank?
-      { :conditions => ["user_id IN (#{followed_ids}) OR user_id = :user_id",
-                        { :user_id => user }] }
+      { :conditions => ["user_id IN (?) OR user_id = ? ",
+                        followed_ids, user.id] }
     end
 end
