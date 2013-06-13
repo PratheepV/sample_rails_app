@@ -1,0 +1,32 @@
+<table class="profile">
+  <tr>
+    <td class="main">
+      <h2>
+        <%= gravatar_for @user %>
+        <%= h @user.name %>
+      </h2>
+      <%unless current_user == @user%>
+      <%if current_user.following? @user.id%>
+      <div id="follow_form">
+      <%= render 'unfollow' %>
+      </div>
+      <%else%>
+      <div id="follow_form">
+      <%= render 'follow' %>
+      </div>
+      <%end%>
+      <%end%>
+      <% unless @user.microposts.empty? %>
+        <table class="microposts">
+          <%= render @microposts %>
+        </table>
+        <%= will_paginate @microposts %>
+      <% end %>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= link_to h(@user.name), user_path(@user)%><br />
+      <%= @user.microposts.count %>&nbsp;<strong>Microposts</strong> 
+      <%= render 'pages/stats' %>
+    </td>
+  </tr>
+</table>
