@@ -13,6 +13,7 @@ GEM
     activeresource (2.3.18)
       activesupport (= 2.3.18)
     activesupport (2.3.18)
+    kgio (2.8.0)
     mysql2 (0.3.11)
     rack (1.1.6)
     rails (2.3.18)
@@ -22,8 +23,16 @@ GEM
       activeresource (= 2.3.18)
       activesupport (= 2.3.18)
       rake (>= 0.8.3)
+    raindrops (0.11.0)
     rake (10.0.4)
     redis (2.2.2)
+    unicorn (4.6.2)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
+    unicorn-rails (1.0.1)
+      rack
+      unicorn
     will_paginate (2.3.12)
 
 PLATFORMS
@@ -34,4 +43,5 @@ DEPENDENCIES
   mysql2
   rails (= 2.3.18)
   redis (= 2.2.2)
+  unicorn-rails (~> 1.0.1)
   will_paginate (= 2.3.12)
